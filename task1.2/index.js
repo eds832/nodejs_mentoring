@@ -10,7 +10,7 @@ csv()
 .subscribe(
   json => {
 				let data = JSON.stringify(json);
-				const jsonStr= data.toString('utf8');
+				let jsonStr = data.toString('utf8');
 				fs.appendFile(jsonFilePath, jsonStr + '\n',  function(err) {
 					if (err) {
 						return console.error(err);
