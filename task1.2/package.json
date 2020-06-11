@@ -1,0 +1,14 @@
+{
+  "name": "task1.2",
+  "version": "1.0.0",
+  "description": "Task 1.2",
+  "main": "index2.js",
+  "scripts": {
+    "task2": "node index2.js"
+  },
+  "author": "Eduard Sardyka",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.10"
+  }
+}

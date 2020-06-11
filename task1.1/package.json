@@ -1,0 +1,11 @@
+{
+  "name": "task1.1",
+  "version": "1.0.0",
+  "description": "Task 1.1",
+  "main": "index.js",
+  "scripts": {
+    "task1": "node index.js"
+  },
+  "author": "Eduard Sardyka",
+  "license": "ISC"
+}
