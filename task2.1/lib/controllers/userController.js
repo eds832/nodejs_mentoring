@@ -1,22 +1,22 @@
-"use strict";
 
-var User = require("../models/user.js");
-var uuid = require('uuid');
+
+const User = require('../models/user.js');
+const uuid = require('uuid');
 
 exports.saveUser = function (request, response) {
-    var id = uuid.v4();
-    var login = request.body.login;
-    var password = request.body.password;
-    var age = request.body.age;
-    var isDeleted = false;
-    var user = new User(id, login, password, age, isDeleted);
+    const id = uuid.v4();
+    const login = request.body.login;
+    const password = request.body.password;
+    const age = request.body.age;
+    const isDeleted = false;
+    const user = new User(id, login, password, age, isDeleted);
     user.save();
     response.send(user);
 };
 
 exports.getUser = function (request, response) {
-    var id = request.params.id;
-    var user = User.getUser(id);
+    const id = request.params.id;
+    const user = User.getUser(id);
     if (user) {
         response.send(user);
     } else {
@@ -25,12 +25,12 @@ exports.getUser = function (request, response) {
 };
 
 exports.updateUser = function (request, response) {
-    var id = request.params.id;
-    var login = request.body.login;
-    var password = request.body.password;
-    var age = request.body.age;
-    var isDeleted = request.body.isDeleted;
-    var user = new User(id, login, password, age, isDeleted);
+    const id = request.params.id;
+    const login = request.body.login;
+    const password = request.body.password;
+    const age = request.body.age;
+    const isDeleted = request.body.isDeleted;
+    let user = new User(id, login, password, age, isDeleted);
     user = User.updateUser(user);
     if (user) {
         response.send(user);
@@ -40,8 +40,8 @@ exports.updateUser = function (request, response) {
 };
 
 exports.getUsers = function (request, response) {
-    var loginSubstring = String(request.body.loginSubstring);
-    var limit = parseInt(request.body.limit);
+    const loginSubstring = String(request.body.loginSubstring);
+    const limit = parseInt(request.body.limit, 10);
     if (loginSubstring && limit && limit >= 0) {
         response.send(User.getAutoSuggestUsers(loginSubstring, limit));
     } else {
@@ -50,8 +50,8 @@ exports.getUsers = function (request, response) {
 };
 
 exports.removeUser = function (request, response) {
-    var id = request.params.id;
-    var user = User.removeUser(id);
+    const id = request.params.id;
+    const user = User.removeUser(id);
     if (user) {
         response.send(user);
     } else {
